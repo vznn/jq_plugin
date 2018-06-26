@@ -12,12 +12,18 @@ const LoginUsers = [
 const Users = [];
 
 for (let i = 0; i < 86; i++) {
+  let _date = new Date();
+  let _birth=Mock.Random.date();
+  let _age=parseInt(_date.getFullYear())-parseInt(_birth.toString().substring(0,4));
+
   Users.push(Mock.mock({
     id: Mock.Random.guid(),
     name: Mock.Random.cname(),
     addr: Mock.mock('@county(true)'),
-    'age|18-60': 1,
-    birth: Mock.Random.date(),
+    // 'age|40-60': 1,
+    age:_age,
+    birth: _birth,
+    // age:2018-birth,
     sex: Mock.Random.integer(0, 1)
   }));
 }
